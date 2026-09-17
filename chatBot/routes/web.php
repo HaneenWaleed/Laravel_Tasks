@@ -1,18 +1,19 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ChatbotController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
-use App\Http\Controllers\ProductController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatbotController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+// chatbot
 Route::get('/chatbot', [ChatbotController::class, 'index'])->name('chatbot.index');
-Route::post('/chatbot/ask', [ChatbotController::class, 'ask'])->name('chatbot.ask');
+Route::post('/chatbot/respond', [ChatbotController::class, 'respond'])->name('chatbot.respond');
 
 // categories
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
